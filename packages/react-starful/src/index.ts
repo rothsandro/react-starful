@@ -1,1 +1,1 @@
-export * from './lib/react-starful';
+export * from './lib/star-rating';

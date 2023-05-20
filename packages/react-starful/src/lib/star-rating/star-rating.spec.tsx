@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import ReactStarful from './react-starful';
+import StarRating from './star-rating';
 
-describe('ReactStarful', () => {
+describe('StarRating', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ReactStarful />);
+    const { baseElement } = render(<StarRating />);
     expect(baseElement).toBeTruthy();
   });
 });
