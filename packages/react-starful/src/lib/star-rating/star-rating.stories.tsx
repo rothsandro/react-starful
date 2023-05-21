@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
 import { StarRating } from './star-rating';
 
 type Story = StoryObj<typeof meta>;
@@ -13,7 +13,7 @@ const meta = {
   decorators: [
     function ControlledMode(Story, ctx) {
       const [, setArgs] = useArgs<typeof ctx.args>();
-      const onChange = (value: number) => {
+      const onChange = (value: number | null) => {
         ctx.args.onChange?.(value);
 
         const isControlled = ctx.args.value !== undefined;
@@ -22,6 +22,15 @@ const meta = {
 
       return <Story args={{ ...ctx.args, onChange }} />;
     },
+  ],
+} satisfies Meta<typeof StarRating>;
+
+export default meta;
+
+export const Basic: Story = {};
+
+export const Labelled: Story = {
+  decorators: [
     function Label(Story) {
       return (
         <fieldset style={{ border: 0, padding: 0 }}>
@@ -33,11 +42,7 @@ const meta = {
       );
     },
   ],
-} satisfies Meta<typeof StarRating>;
-
-export default meta;
-
-export const Basic: Story = {};
+};
 
 export const DefaultValue: Story = {
   args: {
@@ -55,6 +60,21 @@ export const CustomName: Story = {
   args: {
     name: 'rating',
   },
+};
+
+export const Reset: Story = {
+  decorators: [
+    function ResetButton(Story) {
+      return (
+        <form>
+          <Story />
+          <div>
+            <button type="reset">Reset form</button>
+          </div>
+        </form>
+      );
+    },
+  ],
 };
 
 export const Total: Story = {

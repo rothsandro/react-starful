@@ -10,11 +10,11 @@ export function useControlledProps<P extends StarRatingProps>(props: P) {
   } = props;
 
   const isControlled = typeof valueFromProps !== 'undefined';
-  const [internalValue, setInternalValue] = useState(defaultValue ?? 0);
+  const [internalValue, setInternalValue] = useState(defaultValue ?? null);
 
   const value = isControlled ? valueFromProps : internalValue;
   const onChange = useCallback(
-    (value: number) => {
+    (value: number | null) => {
       onChangeFromProps?.(value);
       !isControlled && setInternalValue(value);
     },

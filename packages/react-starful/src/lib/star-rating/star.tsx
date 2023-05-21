@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { StarProps } from './star.types';
 import css from './star.module.scss';
+import { StarProps } from './star.types';
 
 export const Star: FC<StarProps> = (props) => {
   const {
