@@ -22,6 +22,7 @@ export function StarRating(props: StarRatingProps) {
     emptyLabel,
     withActiveLabel = false,
     allowNoRating = true,
+    highlightSelectedOnly = false,
     readOnly = false,
     disabled = false,
     onChange,
@@ -64,8 +65,18 @@ export function StarRating(props: StarRatingProps) {
               label={labels[i]}
               value={starValue}
               isChecked={starValue === value}
-              isActive={!hoverValue && !!value ? starValue <= value : false}
-              isHovered={hoverValue >= starValue}
+              isActive={
+                !hoverValue && !!value
+                  ? highlightSelectedOnly
+                    ? starValue === value
+                    : starValue <= value
+                  : false
+              }
+              isHovered={
+                highlightSelectedOnly
+                  ? hoverValue === starValue
+                  : hoverValue >= starValue
+              }
               readOnly={readOnly}
               disabled={disabled}
               onHover={setHoverValue}

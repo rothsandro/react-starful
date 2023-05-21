@@ -102,6 +102,13 @@ export const NoEmptyRating: Story = {
   },
 };
 
+export const HighlightSelectedOnly: Story = {
+  args: {
+    defaultValue: 4,
+    highlightSelectedOnly: true,
+  },
+};
+
 export const ReadOnly: Story = {
   args: {
     value: 3,

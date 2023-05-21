@@ -23,6 +23,12 @@ export interface StarRatingProps {
   withActiveLabel?: boolean;
 
   /**
+   * If only the selected option should be highlighted.
+   * @default false
+   */
+  highlightSelectedOnly?: boolean;
+
+  /**
    * The default number of stars selected.
    */
   defaultValue?: number | null;
