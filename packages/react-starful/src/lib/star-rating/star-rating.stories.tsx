@@ -87,6 +87,12 @@ export const Total: Story = {
   },
 };
 
+export const CustomLabels: Story = {
+  args: {
+    label: (value) => ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'][value],
+  },
+};
+
 export const ReadOnly: Story = {
   args: {
     value: 3,

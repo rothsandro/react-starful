@@ -5,6 +5,13 @@ export interface StarRatingProps {
   name?: string;
 
   /**
+   * A function that returns the label for a star.
+   * @param value The value of the star.
+   * @returns The label for the star.
+   */
+  label?: (value: number) => string;
+
+  /**
    * The default number of stars selected.
    */
   defaultValue?: number | null;

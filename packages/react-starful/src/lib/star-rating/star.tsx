@@ -5,6 +5,7 @@ import { StarProps } from './star.types';
 export const Star: FC<StarProps> = (props) => {
   const {
     name,
+    label,
     value,
     isChecked,
     isActive,
@@ -42,7 +43,7 @@ export const Star: FC<StarProps> = (props) => {
           readOnly={readOnly}
           disabled={disabled}
         />
-        {value} {value === 1 ? 'Star' : 'Stars'}
+        {label}
       </span>
     </label>
   );

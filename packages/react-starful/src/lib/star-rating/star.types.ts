@@ -1,5 +1,6 @@
 export interface StarProps {
   name: string;
+  label: string;
   value: number;
   isChecked: boolean;
   isActive: boolean;
