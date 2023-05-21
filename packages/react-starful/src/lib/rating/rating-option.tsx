@@ -47,7 +47,7 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
           type="radio"
           name={name}
           onChange={isInteractive ? onChangeHandler : undefined}
-          onClick={isChecked ? onChangeHandler : undefined}
+          onClick={isChecked && isInteractive ? onChangeHandler : undefined}
           value={value}
           checked={isChecked}
           readOnly={readOnly}
