@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ComponentType } from 'react';
+import { RatingIconProps } from './star.types';
 
 export interface StarRatingProps {
   /**
@@ -71,7 +72,7 @@ export interface StarRatingProps {
   disabled?: boolean;
 
   /**
-   * The element to render for each option.
+   * The icon component for each option.
    */
-  element?: ReactNode;
+  iconComponent?: ComponentType<RatingIconProps>;
 }

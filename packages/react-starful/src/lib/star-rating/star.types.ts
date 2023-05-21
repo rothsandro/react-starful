@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentType } from 'react';
 
 export interface StarProps {
   name: string;
@@ -12,5 +12,13 @@ export interface StarProps {
   onChange: (value: number) => void;
   onHover: (value: number) => void;
   onLeave: VoidFunction;
-  element?: ReactNode;
+  iconComponent?: ComponentType<RatingIconProps>;
+}
+
+export interface RatingIconProps {
+  value: number;
+  highlighted: boolean;
+  active: boolean;
+  hovered: boolean;
+  checked: boolean;
 }

@@ -109,10 +109,10 @@ export const HighlightSelectedOnly: Story = {
   },
 };
 
-export const CustomElement: Story = {
+export const CustomIcon: Story = {
   args: {
     defaultValue: 3,
-    element: (
+    iconComponent: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
