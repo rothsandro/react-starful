@@ -1,1 +1,1 @@
-export * from './lib/star-rating';
+export * from './lib/rating';

@@ -1,7 +1,7 @@
 import { ComponentType } from 'react';
-import { RatingIconProps } from './star.types';
+import { RatingOptionIconProps } from './rating-option.types';
 
-export interface StarRatingProps {
+export interface RatingProps {
   /**
    * The name of the input element.
    */
@@ -74,5 +74,5 @@ export interface StarRatingProps {
   /**
    * The icon component for each option.
    */
-  iconComponent?: ComponentType<RatingIconProps>;
+  iconComponent?: ComponentType<RatingOptionIconProps>;
 }

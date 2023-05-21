@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 
-export interface StarProps {
+export interface RatingOptionProps {
   name: string;
   label: string;
   value: number;
@@ -12,10 +12,10 @@ export interface StarProps {
   onChange: (value: number) => void;
   onHover: (value: number) => void;
   onLeave: VoidFunction;
-  iconComponent?: ComponentType<RatingIconProps>;
+  iconComponent?: ComponentType<RatingOptionIconProps>;
 }
 
-export interface RatingIconProps {
+export interface RatingOptionIconProps {
   value: number;
   highlighted: boolean;
   active: boolean;

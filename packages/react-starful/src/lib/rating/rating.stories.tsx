@@ -1,12 +1,12 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
-import { StarRating } from './star-rating';
+import { Rating } from './rating';
 
 type Story = StoryObj<typeof meta>;
 
 const meta = {
-  title: 'StarRating',
-  component: StarRating,
+  title: 'Rating',
+  component: Rating,
   argTypes: {
     onChange: { action: 'onChange' },
   },
@@ -23,7 +23,7 @@ const meta = {
       return <Story args={{ ...ctx.args, onChange }} />;
     },
   ],
-} satisfies Meta<typeof StarRating>;
+} satisfies Meta<typeof Rating>;
 
 export default meta;
 

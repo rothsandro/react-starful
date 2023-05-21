@@ -1,9 +1,12 @@
 import { FC } from 'react';
-import css from './star.module.scss';
-import { RatingIconProps, StarProps } from './star.types';
+import css from './rating-option.module.scss';
+import {
+  RatingOptionIconProps,
+  RatingOptionProps,
+} from './rating-option.types';
 import cssUtils from './utils.module.scss';
 
-export const Star: FC<StarProps> = (props) => {
+export const RatingOption: FC<RatingOptionProps> = (props) => {
   const {
     name,
     label,
@@ -26,7 +29,7 @@ export const Star: FC<StarProps> = (props) => {
 
   return (
     <label
-      className={css.star}
+      className={css.ratingOption}
       data-hovered={isHovered}
       data-active={isActive}
       data-readonly={readOnly}
@@ -58,7 +61,7 @@ export const Star: FC<StarProps> = (props) => {
   );
 };
 
-const StarIcon: FC<RatingIconProps> = (props) => {
+const StarIcon: FC<RatingOptionIconProps> = (props) => {
   const { highlighted } = props;
 
   return (

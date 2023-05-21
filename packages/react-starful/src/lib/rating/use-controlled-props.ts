@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { StarRatingProps } from './star-rating.types';
+import { RatingProps } from './rating.types';
 
-export function useControlledProps<P extends StarRatingProps>(props: P) {
+export function useControlledProps<P extends RatingProps>(props: P) {
   const {
     value: valueFromProps,
     onChange: onChangeFromProps,
