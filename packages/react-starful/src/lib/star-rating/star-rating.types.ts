@@ -12,6 +12,12 @@ export interface StarRatingProps {
   label?: (value: number) => string;
 
   /**
+   * If the label of the selected star should be visible.
+   * @default false
+   */
+  withActiveLabel?: boolean;
+
+  /**
    * The default number of stars selected.
    */
   defaultValue?: number | null;

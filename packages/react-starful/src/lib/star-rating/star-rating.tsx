@@ -17,6 +17,7 @@ export function StarRating(props: StarRatingProps) {
     value,
     total = 5,
     label = defaultLabelFn,
+    withActiveLabel = false,
     readOnly = false,
     disabled = false,
     onChange,
@@ -32,6 +33,8 @@ export function StarRating(props: StarRatingProps) {
     () => Array.from({ length: total }, (_, idx) => label(idx + 1)),
     [total, label]
   );
+
+  const activeValue = hoverValue || value || 0;
 
   return (
     <div className={css.starRating} ref={ref}>
@@ -57,6 +60,9 @@ export function StarRating(props: StarRatingProps) {
             />
           );
         })}
+      {!!withActiveLabel && activeValue > 0 && (
+        <span aria-hidden="true">{labels[activeValue - 1]}</span>
+      )}
     </div>
   );
 }
