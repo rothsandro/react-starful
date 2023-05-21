@@ -1,0 +1,17 @@
+$rating-gap: var(--react-starful-rating-gap, 0px);
+$rating-padding: var(--react-starful-rating-padding, 0px);
+$rating-border-radius: var(--react-starful-rating-border-radius, 2px);
+$rating-shadow-focused: var(
+  --react-starful-rating-shadow-focused,
+  0 0 8px 0 #ffdd00,
+  0 0 0 1px #ffdd00
+);
+
+$rating-icon-cursor: var(--react-starful-rating-icon-cursor, pointer);
+$rating-icon-cursor-readonly: var(--react-starful-rating-icon-cursor-readonly, default);
+$rating-icon-cursor-disabled: var(--react-starful-rating-icon-cursor-disabled, not-allowed);
+$rating-icon-color: var(--react-starful-rating-icon-color, #f0f0f0);
+$rating-icon-color-hover: var(--react-starful-rating-icon-hover-color, #ffdd00);
+$rating-icon-color-active: var(--react-starful-rating-icon-active-color, #ffdd00);
+$rating-icon-font-size: var(--react-starful-rating-icon-font-size, 1.5rem);
+$rating-icon-transition: var(--react-starful-rating-icon-transition, none);

@@ -1,25 +1,26 @@
+@use './variables' as vars;
+
 .ratingOption {
   display: flex;
   position: relative;
-  cursor: var(--react-starful-star-cursor, pointer);
-  color: var(--react-starful-star-color, #f0f0f0);
-  font-size: var(--react-starful-star-font-size, 1.5rem);
-  transition: all var(--react-starful-star-transition-duration, 0.2s)
-    ease-in-out;
+  cursor: vars.$rating-icon-cursor;
+  color: vars.$rating-icon-color;
+  font-size: vars.$rating-icon-font-size;
+  transition: vars.$rating-icon-transition;
 
   &[data-hovered='true'] {
-    color: var(--react-starful-star-hover-color, #ffdd00);
+    color: vars.$rating-icon-color-hover;
   }
 
   &[data-active='true'] {
-    color: var(--react-starful-star-active-color, #ffdd00);
+    color: vars.$rating-icon-color-active;
   }
 
   &[data-readonly='true'] {
-    cursor: var(--react-starful-star-readonly-cursor, default);
+    cursor: vars.$rating-icon-cursor-readonly;
   }
 
   &[data-disabled='true'] {
-    cursor: var(--react-starful-star-disabled-cursor, not-allowed);
+    cursor: vars.$rating-icon-cursor-disabled;
   }
 }

@@ -21,6 +21,53 @@ function MyComponent() {
 }
 ```
 
+## Styling
+
+The rating component uses the following CSS custom properties. You can adjust
+them to your needs.
+
+```css
+:root {
+  /* The gap between the rating options (stars) */
+  --react-starful-rating-gap: 0px;
+
+  /* The padding of the rating container */
+  --react-starful-rating-padding: 0px;
+
+  /* The border radius of the rating container */
+  --react-starful-rating-border-radius: 2px;
+
+  /* The box shadow of the rating container when focused 
+     If you want to remove the shadow, make sure you provide an alternative
+     focus indicator for accessibility. */
+  --react-starful-rating-shadow-focused: 0 0 8px 0 #ffdd00, 0 0 0 1px #ffdd00;
+
+  /* The cursor of the rating icons. */
+  --react-starful-rating-icon-cursor: pointer;
+
+  /* The cursor of the rating icons when readonly. */
+  --react-starful-rating-icon-cursor-readonly: default;
+
+  /* The cursor of the rating icons when disabled. */
+  --react-starful-rating-icon-cursor-disabled: not-allowed;
+
+  /* The color of the rating icons. */
+  --react-starful-rating-icon-color: #f0f0f0;
+
+  /* The transition of the rating icons when hovered. */
+  --react-starful-rating-icon-hover-color: #ffdd00;
+
+  /* The transition of the rating icons when checked. */
+  --react-starful-rating-icon-active-color: #ffdd00;
+
+  /* The font size of the rating icons. */
+  --react-starful-rating-icon-font-size: 1.5rem;
+
+  /* The transition of the rating icons. */
+  --react-starful-rating-icon-transition: none;
+}
+```
+
 ## Examples
 
 ### Uncontrolled with default value
