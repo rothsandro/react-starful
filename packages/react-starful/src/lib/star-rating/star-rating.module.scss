@@ -1,5 +1,25 @@
+@mixin focused-state() {
+  border-radius: var(--react-starful-focus-border-radius, 2px);
+  box-shadow: var(
+    --react-starful-focus-shadow,
+    0 0 8px 0 #ffdd00,
+    0 0 0 1px #ffdd00
+  );
+}
+
 .starRating {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--react-starful-gap, 0.5rem);
+  gap: var(--react-starful-gap, 0px);
+  padding: var(--react-starful-padding, 0px);
+
+  &:focus-within:has(:focus-visible) {
+    @include focused-state();
+  }
+
+  @supports not selector(:has(:focus-visible)) {
+    &:focus-within {
+      @include focused-state();
+    }
+  }
 }

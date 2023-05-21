@@ -1,0 +1,30 @@
+.star {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  color: var(--react-starful-star-color, #f0f0f0);
+  font-size: var(--react-starful-star-font-size, 1.5rem);
+  transition: all var(--react-starful-star-transition-duration, 0.2s)
+    ease-in-out;
+
+  &[data-hovered='true'] {
+    color: var(--react-starful-star-hover-color, #ffdd00);
+  }
+
+  &[data-active='true'] {
+    color: var(--react-starful-star-active-color, #ffdd00);
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
