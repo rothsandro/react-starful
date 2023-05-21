@@ -26,4 +26,16 @@ export interface StarRatingProps {
    * @default 5
    */
   total?: number;
+
+  /**
+   * If the component is read-only.
+   * @default false
+   */
+  readOnly?: boolean;
+
+  /**
+   * If the component is disabled.
+   * @default false
+   */
+  disabled?: boolean;
 }

@@ -1,7 +1,7 @@
 .star {
   display: flex;
   position: relative;
-  cursor: pointer;
+  cursor: var(--react-starful-star-cursor, pointer);
   color: var(--react-starful-star-color, #f0f0f0);
   font-size: var(--react-starful-star-font-size, 1.5rem);
   transition: all var(--react-starful-star-transition-duration, 0.2s)
@@ -13,6 +13,14 @@
 
   &[data-active='true'] {
     color: var(--react-starful-star-active-color, #ffdd00);
+  }
+
+  &[data-readonly='true'] {
+    cursor: var(--react-starful-star-readonly-cursor, default);
+  }
+
+  &[data-disabled='true'] {
+    cursor: var(--react-starful-star-disabled-cursor, not-allowed);
   }
 }
 

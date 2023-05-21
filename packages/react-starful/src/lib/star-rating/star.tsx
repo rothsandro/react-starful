@@ -9,6 +9,8 @@ export const Star: FC<StarProps> = (props) => {
     isChecked,
     isActive,
     isHovered,
+    readOnly,
+    disabled,
     onHover,
     onLeave,
     onChange,
@@ -17,12 +19,16 @@ export const Star: FC<StarProps> = (props) => {
   const onChangeHandler = () => onChange(value);
   const onHoverHandler = () => onHover(value);
 
+  const isInteractive = !readOnly && !disabled;
+
   return (
     <label
       className={css.star}
       data-hovered={isHovered}
       data-active={isActive}
-      onMouseEnter={onHoverHandler}
+      data-readonly={readOnly}
+      data-disabled={disabled}
+      onMouseEnter={isInteractive ? onHoverHandler : undefined}
       onMouseLeave={onLeave}
     >
       {starIcon}
@@ -30,9 +36,11 @@ export const Star: FC<StarProps> = (props) => {
         <input
           type="radio"
           name={name}
-          onChange={onChangeHandler}
+          onChange={isInteractive ? onChangeHandler : undefined}
           value={value}
           checked={isChecked}
+          readOnly={readOnly}
+          disabled={disabled}
         />
         {value} {value === 1 ? 'Star' : 'Stars'}
       </span>

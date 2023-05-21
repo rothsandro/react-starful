@@ -8,7 +8,14 @@ import { useResetHandler } from './use-reset-handler';
 export function StarRating(props: StarRatingProps) {
   const id = `star-rating-${useId()}`;
 
-  const { name = id, value, total = 5, onChange } = useControlledProps(props);
+  const {
+    name = id,
+    value,
+    total = 5,
+    readOnly = false,
+    disabled = false,
+    onChange,
+  } = useControlledProps(props);
   const { ref } = useResetHandler(
     useCallback(() => onChange(null), [onChange])
   );
@@ -31,6 +38,8 @@ export function StarRating(props: StarRatingProps) {
               isChecked={starValue === value}
               isActive={!hoverValue && !!value ? starValue <= value : false}
               isHovered={hoverValue >= starValue}
+              readOnly={readOnly}
+              disabled={disabled}
               onHover={setHoverValue}
               onLeave={clearHover}
               onChange={onChange}

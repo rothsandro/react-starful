@@ -83,3 +83,17 @@ export const Total: Story = {
     total: 10,
   },
 };
+
+export const ReadOnly: Story = {
+  args: {
+    value: 3,
+    readOnly: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    value: 3,
+    disabled: true,
+  },
+};
