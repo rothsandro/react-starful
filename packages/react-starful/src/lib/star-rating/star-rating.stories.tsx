@@ -63,6 +63,9 @@ export const CustomName: Story = {
 };
 
 export const Reset: Story = {
+  args: {
+    defaultValue: 3,
+  },
   decorators: [
     function ResetButton(Story) {
       return (
