@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import StarRating from './star-rating';
+import { StarRating } from './star-rating';
 
 describe('StarRating', () => {
   it('should render successfully', () => {

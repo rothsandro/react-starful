@@ -1,7 +1,5 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.starRating {
+  display: flex;
+  align-items: center;
+  gap: var(--react-starful-gap, 0.5rem);
+}
