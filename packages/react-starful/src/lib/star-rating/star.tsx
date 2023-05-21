@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import css from './star.module.scss';
 import { StarProps } from './star.types';
+import cssUtils from './utils.module.scss';
 
 export const Star: FC<StarProps> = (props) => {
   const {
@@ -29,15 +30,16 @@ export const Star: FC<StarProps> = (props) => {
       data-active={isActive}
       data-readonly={readOnly}
       data-disabled={disabled}
-      onMouseEnter={isInteractive ? onHoverHandler : undefined}
+      onMouseMove={isInteractive ? onHoverHandler : undefined}
       onMouseLeave={onLeave}
     >
       {starIcon}
-      <span className={css.visuallyHidden}>
+      <span className={cssUtils.visuallyHidden}>
         <input
           type="radio"
           name={name}
           onChange={isInteractive ? onChangeHandler : undefined}
+          onClick={isChecked ? onChangeHandler : undefined}
           value={value}
           checked={isChecked}
           readOnly={readOnly}

@@ -12,6 +12,11 @@ export interface StarRatingProps {
   label?: (value: number) => string;
 
   /**
+   * The label for the empty rating.
+   */
+  emptyLabel?: string;
+
+  /**
    * If the label of the selected star should be visible.
    * @default false
    */
@@ -26,6 +31,11 @@ export interface StarRatingProps {
    * The number of selected stars.
    */
   value?: number | null;
+
+  /**
+   * If the component should allow no rating.
+   */
+  allowNoRating?: boolean;
 
   /**
    * The callback function that is triggered when the number of selected stars is changed.

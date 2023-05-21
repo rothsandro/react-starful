@@ -90,7 +90,15 @@ export const Total: Story = {
 export const CustomLabels: Story = {
   args: {
     label: (value) => ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'][value - 1],
+    emptyLabel: 'No rating',
     withActiveLabel: true,
+  },
+};
+
+export const NoEmptyRating: Story = {
+  args: {
+    allowNoRating: false,
+    defaultValue: 5,
   },
 };
 
