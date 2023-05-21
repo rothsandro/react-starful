@@ -1,5 +1,4 @@
-import { ComponentType } from 'react';
-import { RatingOptionIconProps } from './rating-option.types';
+import { RatingIconComponent } from './rating-icon.types';
 
 export interface RatingProps {
   /**
@@ -74,5 +73,5 @@ export interface RatingProps {
   /**
    * The icon component for each option.
    */
-  iconComponent?: ComponentType<RatingOptionIconProps>;
+  iconComponent?: RatingIconComponent;
 }

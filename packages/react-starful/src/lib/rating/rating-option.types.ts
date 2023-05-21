@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { RatingIconComponent } from './rating-icon.types';
 
 export interface RatingOptionProps {
   name: string;
@@ -12,13 +12,5 @@ export interface RatingOptionProps {
   onChange: (value: number) => void;
   onHover: (value: number) => void;
   onLeave: VoidFunction;
-  iconComponent?: ComponentType<RatingOptionIconProps>;
-}
-
-export interface RatingOptionIconProps {
-  value: number;
-  highlighted: boolean;
-  active: boolean;
-  hovered: boolean;
-  checked: boolean;
+  iconComponent?: RatingIconComponent;
 }
