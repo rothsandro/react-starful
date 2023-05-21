@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface StarRatingProps {
   /**
    * The name of the input element.
@@ -67,4 +69,9 @@ export interface StarRatingProps {
    * @default false
    */
   disabled?: boolean;
+
+  /**
+   * The element to render for each option.
+   */
+  element?: ReactNode;
 }

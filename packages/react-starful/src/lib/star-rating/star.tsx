@@ -13,6 +13,7 @@ export const Star: FC<StarProps> = (props) => {
     isHovered,
     readOnly,
     disabled,
+    element = starIcon,
     onHover,
     onLeave,
     onChange,
@@ -33,7 +34,7 @@ export const Star: FC<StarProps> = (props) => {
       onMouseMove={isInteractive ? onHoverHandler : undefined}
       onMouseLeave={onLeave}
     >
-      {starIcon}
+      {element}
       <span className={cssUtils.visuallyHidden}>
         <input
           type="radio"

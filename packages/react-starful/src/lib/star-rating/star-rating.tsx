@@ -25,6 +25,7 @@ export function StarRating(props: StarRatingProps) {
     highlightSelectedOnly = false,
     readOnly = false,
     disabled = false,
+    element,
     onChange,
   } = useControlledProps(props);
 
@@ -62,6 +63,7 @@ export function StarRating(props: StarRatingProps) {
             <Star
               key={i}
               name={name}
+              element={element}
               label={labels[i]}
               value={starValue}
               isChecked={starValue === value}
