@@ -1,0 +1,44 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
+import * as stories from './star-rating.stories';
+
+<Meta of={stories} />
+
+# Star Rating
+
+## Installation
+
+```sh
+npm install react-starful
+```
+
+## Usage
+
+```tsx
+import { StarRating } from 'react-starful';
+
+function MyComponent() {
+  return <StarRating />;
+}
+```
+
+## Examples
+
+### Uncontrolled with default value
+
+<Canvas of={stories.DefaultValue} />
+
+### Controlled
+
+<Canvas of={stories.Controlled} />
+
+### Custom name
+
+<Canvas of={stories.CustomName} />
+
+### Total number of stars
+
+<Canvas of={stories.Total} />
+
+## Props
+
+<ArgsTable />
