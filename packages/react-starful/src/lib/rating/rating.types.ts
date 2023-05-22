@@ -72,6 +72,11 @@ export interface RatingProps {
   disabled?: boolean;
 
   /**
+   * An optional class name added to the root element.
+   */
+  className?: string;
+
+  /**
    * The icon component for each option.
    */
   iconComponent?: RatingIconComponent;

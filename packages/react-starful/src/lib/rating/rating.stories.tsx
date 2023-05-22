@@ -146,3 +146,9 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const CustomStyles: Story = {
+  args: {
+    className: 'my-rating',
+  },
+};

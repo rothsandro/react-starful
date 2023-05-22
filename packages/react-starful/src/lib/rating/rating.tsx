@@ -5,6 +5,7 @@ import css from './rating.module.scss';
 import { RatingProps } from './rating.types';
 import { useControlledProps } from './use-controlled-props';
 import { useResetHandler } from './use-reset-handler';
+import { classNames } from './utils';
 import cssUtils from './utils.module.scss';
 
 export function Rating(props: RatingProps) {
@@ -22,6 +23,7 @@ export function Rating(props: RatingProps) {
     highlightSelectedOnly = false,
     readOnly = false,
     disabled = false,
+    className,
     iconComponent,
     onChange,
   } = useControlledProps(props);
@@ -44,7 +46,7 @@ export function Rating(props: RatingProps) {
   const activeValue = hoverValue || value || 0;
 
   return (
-    <span className={css.rating} ref={ref}>
+    <span className={classNames(css.rating, className)} ref={ref}>
       <span className={css.ratingOptions}>
         {Array(total)
           .fill(null)
