@@ -1,7 +1,11 @@
 import { RatingIconComponent } from './rating-icon.types';
 import { RatingLabelTextFn } from './rating-label.types';
 
-export interface RatingProps {
+export type RatingProps = NullableRatingProps | NonNullableRatingProps;
+export type NullableRatingProps = BaseRatingProps & NullableProps;
+export type NonNullableRatingProps = BaseRatingProps & NonNullableProps;
+
+interface BaseRatingProps {
   /**
    * The name of the input elements.
    * @default A unique random string
@@ -32,28 +36,6 @@ export interface RatingProps {
   highlightSelectedOnly?: boolean;
 
   /**
-   * The default number of stars selected.
-   */
-  defaultValue?: number | null;
-
-  /**
-   * The number of selected stars.
-   */
-  value?: number | null;
-
-  /**
-   * If the component should allow no rating.
-   */
-  allowNoRating?: boolean;
-
-  /**
-   * The callback function that is triggered when the number of selected stars is changed.
-   * @param value The number of selected stars.
-   * @returns
-   */
-  onChange?: (value: number | null) => void;
-
-  /**
    * The total number of stars.
    * @default 5
    */
@@ -80,4 +62,63 @@ export interface RatingProps {
    * The icon component for each option.
    */
   iconComponent?: RatingIconComponent;
+}
+
+interface NullableProps {
+  /**
+   * If the component should allow no rating.
+   */
+  nonNullable?: false;
+
+  /**
+   * The default number of stars selected.
+   */
+  defaultValue?: number | null;
+
+  /**
+   * The number of selected stars.
+   */
+  value?: number | null;
+
+  /**
+   * If true, the empty rating is removed.
+   * @default false
+   */
+  noEmptyRating?: boolean;
+
+  /**
+   * The callback function that is triggered when the number of selected stars is changed.
+   * @param value The number of selected stars.
+   * @returns
+   */
+  onChange?: (value: number | null) => void;
+}
+
+interface NonNullableProps {
+  /**
+   * If the component should allow no rating.
+   */
+  nonNullable: true;
+
+  /**
+   * The default number of stars selected.
+   */
+  defaultValue: number;
+
+  /**
+   * The number of selected stars.
+   */
+  value?: number;
+
+  /**
+   * If true, the empty rating is removed.
+   */
+  noEmptyRating: true;
+
+  /**
+   * The callback function that is triggered when the number of selected stars is changed.
+   * @param value The number of selected stars.
+   * @returns
+   */
+  onChange?: (value: number) => void;
 }

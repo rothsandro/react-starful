@@ -19,7 +19,7 @@ export function Rating(props: RatingProps) {
     value,
     resetValue,
     total = 5,
-    allowNoRating = true,
+    noEmptyRating = false,
     highlightSelectedOnly = false,
     readOnly = false,
     disabled = false,
@@ -39,14 +39,14 @@ export function Rating(props: RatingProps) {
 
   const onSelectHandler = useCallback(
     (newValue: number) => {
-      if (allowNoRating && value === newValue) {
+      if (!noEmptyRating && value === newValue) {
         onChange(null);
         clearHover();
       } else if (value !== newValue) {
         onChange(newValue);
       }
     },
-    [allowNoRating, value, onChange, clearHover]
+    [noEmptyRating, value, onChange, clearHover]
   );
 
   const activeValue = hoverValue || value || 0;
@@ -86,7 +86,7 @@ export function Rating(props: RatingProps) {
             );
           })}
       </span>
-      {!!allowNoRating && (
+      {!noEmptyRating && (
         <label className={cssUtils.visuallyHidden}>
           <input
             type="radio"

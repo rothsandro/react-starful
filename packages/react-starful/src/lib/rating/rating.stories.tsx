@@ -1,7 +1,9 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentType } from 'react';
 import { Rating } from './rating';
 import { createLabelsFromArray } from './rating-label.utils';
+import { NullableRatingProps } from './rating.types';
 
 type Story = StoryObj<typeof meta>;
 
@@ -24,7 +26,7 @@ const meta = {
       return <Story args={{ ...ctx.args, onChange }} />;
     },
   ],
-} satisfies Meta<typeof Rating>;
+} satisfies Meta<ComponentType<NullableRatingProps>>;
 
 export default meta;
 
@@ -97,7 +99,7 @@ export const CustomLabels: Story = {
 
 export const NoEmptyRating: Story = {
   args: {
-    allowNoRating: false,
+    noEmptyRating: true,
     defaultValue: 5,
   },
 };
