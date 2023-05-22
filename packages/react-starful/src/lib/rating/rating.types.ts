@@ -21,7 +21,7 @@ interface BaseRatingProps {
   /**
    * The label for the empty rating.
    */
-  emptyLabel?: string;
+  emptyLabelText?: string;
 
   /**
    * If the label of the selected star should be shown.

@@ -14,7 +14,7 @@ export function Rating(props: RatingProps) {
   const {
     name = id,
     getLabelText,
-    emptyLabel,
+    emptyLabelText,
     withActiveLabel = false,
     value,
     resetValue,
@@ -97,7 +97,7 @@ export function Rating(props: RatingProps) {
             readOnly={readOnly}
             disabled={disabled}
           />
-          <span>{emptyLabel || 'Empty'}</span>
+          <span>{emptyLabelText || 'Empty'}</span>
         </label>
       )}
       {!!withActiveLabel && activeValue > 0 && (

@@ -1,17 +1,30 @@
-import { ArgsTable, Canvas, Meta, Story } from '@storybook/blocks';
+import { ArgsTable, Canvas, Description, Meta, Story } from '@storybook/blocks';
 import * as stories from './rating.stories';
 
 <Meta of={stories} />
 
 # Rating
 
+The `<Rating />` component is a (star) rating input to rate something, like a movie.
+
 ## Installation
 
-```sh
+Install the package in your React project using npm or yarn.
+
+```bash
+# npm
 npm install react-starful
+
+# yarn
+yarn add react-starful
 ```
 
 ## Usage
+
+### Basic
+
+Import the `<Rating />` component and use it in your React app. It works in uncontrolled mode by default
+and does not need any props.
 
 ```tsx
 import { Rating } from 'react-starful';
@@ -19,6 +32,125 @@ import { Rating } from 'react-starful';
 function MyComponent() {
   return <Rating />;
 }
+```
+
+### Controlled vs. Uncontrolled
+
+The component is uncontrolled by default and you can set a default value using the `defaultValue` prop.
+
+```tsx
+<Rating defaultValue={3} />
+```
+
+For controlled usage, you can use the `value` and `onChange` props.
+
+```tsx
+function MyComponent() {
+  const [value, setValue] = useState<number | null>(null);
+
+  return <Rating value={value} onChange={setValue} />;
+}
+```
+
+### Forms & State
+
+The component can be used in forms. You can provide a `name` prop to identify the rating in the form.
+If the name is omitted, the component will automatically generate a unique name. For better accessibility
+it's also recommended to wrap the component in a `fieldset` and provide a `legend` describing the rating.
+
+```tsx
+<fieldset>
+  <leged>Rating</legend>
+  <Rating name="rating" defaultValue={3} />
+</fieldset>
+```
+
+The component also accepts the `readOnly` and `disabled` props. In both cases, the rating cannot be changed
+by the user. The differences are that the `readOnly` prop will still submit the rating in a form and the
+control is still focusable, while the `disabled` prop will not submit the rating and the control is not
+focusable.
+
+```tsx
+<Rating name="rating" readOnly />
+<Rating name="rating" disabled />
+```
+
+### Empty Rating
+
+The component renders a hidden _empty_ rating option by default.
+If the user clicks on the already selected rating, the rating will be reset to the _empty_ rating.
+Alternatively, keyboard users switch to the empty rating before the first / after the last rating.
+
+The empty rating emits `null` as value. When accessing the form data, the value will be an empty string.
+
+You can disable the empty rating by setting the `noEmptyRating` prop to `true`.
+
+```tsx
+<Rating name="rating" noEmptyRating />
+```
+
+If you use TypeScript you will notice that the component accepts a `null` value and may emit a `null` value
+in the `onChange` callback. This is because the component maybe used in a form with a reset button. If you
+don't want to allow `null` values, you can disable them:
+
+```tsx
+<Rating
+  nonNullable
+  noEmptyRating
+  defaultValue={3}
+  onChange={(value) => {
+    // value is never null
+    console.log(value);
+  }}
+/>
+```
+
+### Highlighting
+
+All rating options up to the selected rating are highlighted by default.
+You can change the bevahior by setting the `highlightSelectedOnly` prop to `true`.
+
+```tsx
+<Rating name="rating" highlightSelectedOnly />
+```
+
+### Icons & Labels
+
+The form renders five stars by default. You can customize the total number of stars via `total` property.
+The `iconProperty` prop allows you to customize the icon.
+
+```tsx
+function Emoji({ value }) {
+  const icons = ['😐', '😊', '😍'];
+  return <span>{icons[value - 1]}</span>;
+}
+
+<Rating total={3} iconComponent={Emoji} />;
+```
+
+Each rating option has an invisible label for screen readers and other assistive technologies.
+The default labels are _1 star_, _2 stars_, _3 stars_, and so on. You can customize the labels
+via the `getLabelText` prop. The function receives the value (1, 2, 3, ...) as argument and
+should return a string.
+
+```tsx
+// Create simple labels (1 cat, 2 cats, 3 cats, ...)
+const getLabelText = createSimpleLabels("cat", "cats");
+<Rating getLabelText={getLabelText} />
+
+// Create custom labels from an array
+const getLabelText = createLabelsFromArray(["bad", "okay", "good", "great", "awesome"]);
+<Rating getLabelText={getLabelText} />
+
+// Create custom label
+<Rating getLabelText={(value) => translate('rating', { value })} />;
+```
+
+The _empty_ rating option has a special label. By default, it's \_Empty. You can customize
+the label via the `emptyLabelText` prop.
+
+```tsx
+<Rating emptyLabelText="Unrated" />
 ```
 
 ## Styling
@@ -58,10 +190,10 @@ them to your needs.
   --react-starful-rating-icon-color: #f0f0f0;
 
   /* The transition of the rating icons when hovered. */
-  --react-starful-rating-icon-hover-color: #ffdd00;
+  --react-starful-rating-icon-color-hover: #ffdd00;
 
   /* The transition of the rating icons when checked. */
-  --react-starful-rating-icon-active-color: #ffdd00;
+  --react-starful-rating-icon-color-active: #ffdd00;
 
   /* The font size of the rating icons. */
   --react-starful-rating-icon-font-size: 1.5rem;
@@ -70,24 +202,6 @@ them to your needs.
   --react-starful-rating-icon-transition: none;
 }
 ```
-
-## Examples
-
-### Uncontrolled with default value
-
-<Canvas of={stories.DefaultValue} />
-
-### Controlled
-
-<Canvas of={stories.Controlled} />
-
-### Custom name
-
-<Canvas of={stories.CustomName} />
-
-### Total number of stars
-
-<Canvas of={stories.Total} />
 
 ## Props
 

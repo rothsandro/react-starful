@@ -1,6 +1,6 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentType } from 'react';
+import { CSSProperties, ComponentType } from 'react';
 import { Rating } from './rating';
 import { createLabelsFromArray } from './rating-label.utils';
 import { NullableRatingProps } from './rating.types';
@@ -57,13 +57,13 @@ export const Controlled: Story = {
   },
 };
 
-export const CustomName: Story = {
+export const FormName: Story = {
   args: {
     name: 'rating',
   },
 };
 
-export const Reset: Story = {
+export const FormReset: Story = {
   args: {
     defaultValue: 3,
   },
@@ -89,10 +89,11 @@ export const Total: Story = {
 };
 
 const getLabelText = createLabelsFromArray(['Very bad', 'Bad', 'Ok', 'Good', 'Very good']);
-export const CustomLabels: Story = {
+
+export const Labels: Story = {
   args: {
     getLabelText,
-    emptyLabel: 'No rating',
+    emptyLabelText: 'No rating',
     withActiveLabel: true,
   },
 };
@@ -114,24 +115,11 @@ export const HighlightSelectedOnly: Story = {
 export const CustomIcon: Story = {
   args: {
     defaultValue: 3,
-    iconComponent: () => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-        <path d="M9 9L9.01 9"></path>
-        <path d="M15 9L15.01 9"></path>
-      </svg>
-    ),
+    iconComponent: ({ value, highlighted }) => {
+      const icons = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'];
+      const style = highlighted ? {} : { opacity: 0.2 };
+      return <span style={style}>{icons[value - 1]}</span>;
+    },
   },
 };
 
@@ -153,4 +141,19 @@ export const CustomStyles: Story = {
   args: {
     className: 'my-rating',
   },
+  decorators: [
+    function Styles(Story) {
+      const styles = {
+        '--react-starful-rating-icon-color': 'lightgreen',
+        '--react-starful-rating-icon-color-hover': 'green',
+        '--react-starful-rating-icon-color-active': 'green',
+      } as CSSProperties;
+
+      return (
+        <div style={styles}>
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
