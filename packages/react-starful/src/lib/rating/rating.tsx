@@ -5,7 +5,7 @@ import css from './rating.module.scss';
 import { RatingProps } from './rating.types';
 import { useControlledProps } from './use-controlled-props';
 import { useResetHandler } from './use-reset-handler';
-import { classNames } from './utils';
+import { assert, classNames } from './utils';
 import cssUtils from './utils.module.scss';
 
 export function Rating(props: RatingProps) {
@@ -27,6 +27,9 @@ export function Rating(props: RatingProps) {
     iconComponent,
     onChange,
   } = useControlledProps(props);
+
+  assert(total > 0, 'total must be greater than 0');
+  assert(value === null || value <= total, 'value must be less than or equal to total');
 
   const { ref } = useResetHandler(useCallback(() => onChange(resetValue), [resetValue, onChange]));
 
