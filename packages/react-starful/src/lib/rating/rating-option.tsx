@@ -16,11 +16,11 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
     disabled,
     iconComponent: Icon = StarRatingIcon,
     onHover,
-    onLeave,
-    onChange,
+    onHoverLeave,
+    onSelect,
   } = props;
 
-  const onChangeHandler = () => onChange(value);
+  const onSelectHandler = () => onSelect(value);
   const onHoverHandler = () => onHover(value);
 
   const isInteractive = !readOnly && !disabled;
@@ -33,7 +33,7 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
       data-readonly={readOnly}
       data-disabled={disabled}
       onMouseMove={isInteractive ? onHoverHandler : undefined}
-      onMouseLeave={onLeave}
+      onMouseLeave={onHoverLeave}
     >
       <Icon
         value={value}
@@ -46,8 +46,8 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
         <input
           type="radio"
           name={name}
-          onChange={isInteractive ? onChangeHandler : undefined}
-          onClick={isChecked && isInteractive ? onChangeHandler : undefined}
+          onChange={isInteractive ? onSelectHandler : undefined}
+          onClick={isChecked && isInteractive ? onSelectHandler : undefined}
           value={value}
           checked={isChecked}
           readOnly={readOnly}

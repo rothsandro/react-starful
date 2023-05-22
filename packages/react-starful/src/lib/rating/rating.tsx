@@ -34,14 +34,17 @@ export function Rating(props: RatingProps) {
   const [hoverValue, setHoverValue] = useState<number>(0);
   const clearHover = useCallback(() => setHoverValue(0), []);
 
-  const onChangeHandler = (newValue: number) => {
-    if (allowNoRating && value === newValue) {
-      onChange(null);
-      clearHover();
-    } else {
-      onChange(newValue);
-    }
-  };
+  const onSelectHandler = useCallback(
+    (newValue: number) => {
+      if (allowNoRating && value === newValue) {
+        onChange(null);
+        clearHover();
+      } else if (value !== newValue) {
+        onChange(newValue);
+      }
+    },
+    [allowNoRating, value, onChange, clearHover]
+  );
 
   const activeValue = hoverValue || value || 0;
 
@@ -74,8 +77,8 @@ export function Rating(props: RatingProps) {
                 readOnly={readOnly}
                 disabled={disabled}
                 onHover={setHoverValue}
-                onLeave={clearHover}
-                onChange={onChangeHandler}
+                onHoverLeave={clearHover}
+                onSelect={onSelectHandler}
               />
             );
           })}
