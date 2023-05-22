@@ -1,6 +1,7 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Rating } from './rating';
+import { createLabelsFromArray } from './rating-label.utils';
 
 type Story = StoryObj<typeof meta>;
 
@@ -34,9 +35,7 @@ export const Labelled: Story = {
     function Label(Story) {
       return (
         <fieldset style={{ border: 0, padding: 0 }}>
-          <legend style={{ fontWeight: 'bold', marginBlockEnd: 5 }}>
-            Rating
-          </legend>
+          <legend style={{ fontWeight: 'bold', marginBlockEnd: 5 }}>Rating</legend>
           <Story />
         </fieldset>
       );
@@ -87,9 +86,10 @@ export const Total: Story = {
   },
 };
 
+const getLabelText = createLabelsFromArray(['Very bad', 'Bad', 'Ok', 'Good', 'Very good']);
 export const CustomLabels: Story = {
   args: {
-    label: (value) => ['Very bad', 'Bad', 'Ok', 'Good', 'Very good'][value - 1],
+    getLabelText,
     emptyLabel: 'No rating',
     withActiveLabel: true,
   },

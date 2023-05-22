@@ -1,17 +1,18 @@
 import { RatingIconComponent } from './rating-icon.types';
+import { RatingLabelTextFn } from './rating-label.types';
 
 export interface RatingProps {
   /**
-   * The name of the input element.
+   * The name of the input elements.
+   * @default A unique random string
    */
   name?: string;
 
   /**
-   * A function that returns the label for a star.
-   * @param value The value of the star.
-   * @returns The label for the star.
+   * A function that returns the label for each option.
+   * @default createSimpleLabels('star', 'stars')
    */
-  label?: (value: number) => string;
+  getLabelText?: RatingLabelTextFn;
 
   /**
    * The label for the empty rating.
@@ -19,7 +20,7 @@ export interface RatingProps {
   emptyLabel?: string;
 
   /**
-   * If the label of the selected star should be visible.
+   * If the label of the selected star should be shown.
    * @default false
    */
   withActiveLabel?: boolean;

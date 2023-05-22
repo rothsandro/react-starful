@@ -4,10 +4,14 @@
   box-shadow: vars.$rating-shadow-focused;
 }
 
-.rating {
+.rating,
+.ratingOptions {
   display: inline-flex;
   align-items: center;
-  gap: vars.$rating-gap;
+}
+
+.rating {
+  gap: vars.$rating-label-gap;
   border-radius: vars.$rating-border-radius;
   padding: vars.$rating-padding;
 
@@ -20,4 +24,8 @@
       @include focused-state();
     }
   }
+}
+
+.ratingOptions {
+  gap: vars.$rating-gap;
 }
