@@ -36,8 +36,8 @@ export const Labelled: Story = {
   decorators: [
     function Label(Story) {
       return (
-        <fieldset style={{ border: 0, padding: 0 }}>
-          <legend style={{ fontWeight: 'bold', marginBlockEnd: 5 }}>Rating</legend>
+        <fieldset>
+          <legend>Rating</legend>
           <Story />
         </fieldset>
       );
