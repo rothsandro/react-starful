@@ -1,6 +1,31 @@
 {
   "name": "react-starful",
   "version": "0.0.1",
+  "license": "MIT",
+  "description": "A rating component for React",
+  "keywords": [
+    "react",
+    "rating",
+    "star",
+    "starful",
+    "component"
+  ],
+  "author": {
+    "name": "Sandro Roth",
+    "url": "https://sandroroth.com"
+  },
+  "homepage": "https://react-starful.sandroroth.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rothsandro/react-starful"
+  },
+  "bugs": {
+    "url": "https://github.com/rothsandro/react-starful/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {

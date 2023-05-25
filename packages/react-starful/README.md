@@ -1,7 +1,5 @@
 # react-starful
 
-This library was generated with [Nx](https://nx.dev).
+A customizable rating component for React, written in TypeScript.
 
-## Running unit tests
-
-Run `nx test react-starful` to execute the unit tests via [Vitest](https://vitest.dev/).
+[Demo and documentation](https://react-starful.sandroroth.com/)
