@@ -22,7 +22,7 @@ npm install react-starful
 ```jsx
 import { useState } from 'react';
 import { Rating } from 'react-starful';
-import './react-starful/styles';
+import 'react-starful/styles';
 
 const MyComponent = () => {
   const [rating, setRating] = useState(3);
