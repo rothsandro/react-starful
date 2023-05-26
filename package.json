@@ -7,7 +7,9 @@
     "test": "nx test react-starful",
     "test:watch": "nx test react-starful --watch",
     "storybook": "nx storybook react-starful",
-    "storybook:build": "nx build-storybook react-starful"
+    "storybook:build": "nx build-storybook react-starful",
+    "publish": "cd dist/packages/react-starful && npm publish",
+    "release": "npm run test && npm run build && npm run publish"
   },
   "private": true,
   "devDependencies": {
