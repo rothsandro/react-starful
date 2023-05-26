@@ -2,7 +2,13 @@
   "name": "@react-starful/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx build react-starful",
+    "test": "nx test react-starful",
+    "test:watch": "nx test react-starful --watch",
+    "storybook": "nx storybook react-starful",
+    "storybook:build": "nx build-storybook react-starful"
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint-plugin": "16.2.1",
