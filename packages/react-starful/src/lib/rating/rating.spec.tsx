@@ -143,6 +143,15 @@ describe('Rating', () => {
       expect(getLabelText).toHaveBeenCalledTimes(5);
     });
 
+    test('uses the number as fallback', () => {
+      render(<Rating getLabelText={() => ''} />);
+      expect(screen.getByLabelText('1')).toBeInTheDocument();
+      expect(screen.getByLabelText('2')).toBeInTheDocument();
+      expect(screen.getByLabelText('3')).toBeInTheDocument();
+      expect(screen.getByLabelText('4')).toBeInTheDocument();
+      expect(screen.getByLabelText('5')).toBeInTheDocument();
+    });
+
     test('createSimpleLabels(cat) generates the labels', () => {
       const getLabelFn = createSimpleLabels('cat');
 
@@ -202,6 +211,20 @@ describe('Rating', () => {
     test('renders the custom number of stars', () => {
       render(<Rating total={12} />);
       expect(screen.getAllByRole('radio')).toHaveLength(12 + 1);
+    });
+
+    test.each([[0], [-1], [-5]])('throws if total is %i', (total) => {
+      jest.spyOn(console, 'error').mockImplementation(jest.fn());
+      const error = 'total must be greater than 0';
+      expect(() => render(<Rating total={total} />)).toThrowError(error);
+      jest.spyOn(console, 'error').mockRestore();
+    });
+
+    test('throws if value is > total', () => {
+      jest.spyOn(console, 'error').mockImplementation(jest.fn());
+      const error = 'value must be less than or equal to total';
+      expect(() => render(<Rating defaultValue={6} total={5} />)).toThrowError(error);
+      jest.spyOn(console, 'error').mockRestore();
     });
   });
 
