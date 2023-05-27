@@ -1,9 +1,6 @@
 const config = {
-  stories: [
-    '../src/lib/**/*.mdx',
-    '../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-  ],
-  addons: ['@storybook/addon-essentials'],
+  stories: ['../src/lib/**/*.mdx', '../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
   framework: {
     name: '@storybook/react-vite',
     options: {

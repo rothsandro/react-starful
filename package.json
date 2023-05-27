@@ -23,6 +23,7 @@
     "@nx/vite": "16.2.1",
     "@nx/web": "16.2.1",
     "@nx/workspace": "16.2.1",
+    "@storybook/addon-a11y": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.9",
     "@storybook/core-server": "^7.0.9",
     "@storybook/react-vite": "^7.0.9",
