@@ -3,10 +3,19 @@
 .ratingOption {
   display: flex;
   position: relative;
+  padding: vars.$rating-icon-space-around;
   cursor: vars.$rating-icon-cursor;
   color: vars.$rating-icon-color;
   font-size: vars.$rating-icon-font-size;
   transition: vars.$rating-icon-transition;
+
+  &:not(:last-of-type) {
+    padding-right: calc(vars.$rating-icon-space-between / 2);
+  }
+
+  &:not(:first-of-type) {
+    padding-left: calc(vars.$rating-icon-space-between / 2);
+  }
 
   &[data-hovered='true'] {
     color: vars.$rating-icon-color-hover;

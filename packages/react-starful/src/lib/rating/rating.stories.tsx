@@ -1,6 +1,6 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
-import { CSSProperties, ComponentType } from 'react';
+import { ComponentType } from 'react';
 import { Rating } from './rating';
 import { createLabelsFromArray } from './rating-label.utils';
 import { NullableRatingProps } from './rating.types';
@@ -141,19 +141,4 @@ export const CustomStyles: Story = {
   args: {
     className: 'my-rating',
   },
-  decorators: [
-    function Styles(Story) {
-      const styles = {
-        '--react-starful-rating-icon-color': 'lightgreen',
-        '--react-starful-rating-icon-color-hover': 'green',
-        '--react-starful-rating-icon-color-active': 'green',
-      } as CSSProperties;
-
-      return (
-        <div style={styles}>
-          <Story />
-        </div>
-      );
-    },
-  ],
 };

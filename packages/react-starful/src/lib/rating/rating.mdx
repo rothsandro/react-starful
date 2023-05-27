@@ -157,17 +157,21 @@ the label via the `emptyLabelText` prop.
 <Rating emptyLabelText="Unrated" />
 ```
 
-## Styling
+### Custom styling
 
-The rating component uses the following CSS custom properties. You can adjust
-them to your needs.
+The component accepts a custom CSS class name via the `className` prop.
+
+```tsx
+<Rating className="my-rating" />
+```
+
+The following CSS custom properties are available to customize the look of the component.
+The code block below shows the default value of each property.
 
 ```css
-:root {
-  /* The gap between the rating options (stars) */
-  --react-starful-rating-gap: 0px;
-
+.my-rating {
   /* The gap between the rating options (stars) and the label */
+  /* Only used if withActiveLabel is true */
   --react-starful-rating-label-gap: 1rem;
 
   /* The padding of the rating container */
@@ -176,10 +180,18 @@ them to your needs.
   /* The border radius of the rating container */
   --react-starful-rating-border-radius: 2px;
 
-  /* The box shadow of the rating container when focused 
+  /* The box shadow of the rating container when focused.
      If you want to remove the shadow, make sure you provide an alternative
-     focus indicator for accessibility. */
+    focus indicator for accessibility. */
   --react-starful-rating-shadow-focused: 0 0 8px 0 #ffdd00, 0 0 0 1px #ffdd00;
+
+  /* The spacing around the rating options (star).
+     This extends the clickable area of the rating options. */
+  --react-starful-rating-icon-space-around: 0px;
+
+  /* The spacing between the rating options (stars). */
+  /* This extends the clickable area of the rating options. */
+  --react-starful-rating-icon-space-between: 0px;
 
   /* The cursor of the rating icons. */
   --react-starful-rating-icon-cursor: pointer;
@@ -191,13 +203,13 @@ them to your needs.
   --react-starful-rating-icon-cursor-disabled: not-allowed;
 
   /* The color of the rating icons. */
-  --react-starful-rating-icon-color: #f0f0f0;
+  --react-starful-rating-icon-color: #dbdbd7;
 
-  /* The transition of the rating icons when hovered. */
-  --react-starful-rating-icon-color-hover: #ffdd00;
+  /* The color of the rating icons when hovered. */
+  --react-starful-rating-icon-color-hover: #f7ce00;
 
-  /* The transition of the rating icons when checked. */
-  --react-starful-rating-icon-color-active: #ffdd00;
+  /* The color of the rating icons when checked. */
+  --react-starful-rating-icon-color-active: #f5d90a;
 
   /* The font size of the rating icons. */
   --react-starful-rating-icon-font-size: 1.5rem;

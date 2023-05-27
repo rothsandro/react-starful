@@ -13,3 +13,17 @@ legend {
   margin-block-end: 5px;
   font-weight: 500;
 }
+
+.my-rating {
+  --react-starful-rating-icon-cursor: cell;
+  --react-starful-rating-icon-color: #d7dcda;
+  --react-starful-rating-icon-color-active: #5bb98c;
+  --react-starful-rating-icon-color-hover: #30a46c;
+  --react-starful-rating-icon-space-around: 15px 5px;
+  --react-starful-rating-icon-space-between: 10px;
+  --react-starful-rating-icon-font-size: 2rem;
+  --react-starful-rating-shadow-focused: 0 0 8px 0 #92ceac, 0 0 0 1px #92ceac;
+  --react-starful-rating-border-radius: 9999px;
+  --react-starful-rating-padding: 0 20px;
+  --react-starful-rating-icon-transition: color 0.2s ease-in-out;
+}
