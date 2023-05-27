@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nx build react-starful",
     "test": "nx test react-starful",
+    "test:coverage": "nx test react-starful --code-coverage",
     "test:watch": "nx test react-starful --watch",
     "storybook": "nx storybook react-starful",
     "storybook:build": "nx build-storybook react-starful",
