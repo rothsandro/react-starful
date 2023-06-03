@@ -9,6 +9,7 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
     name,
     label,
     value,
+    required,
     isChecked,
     isActive,
     isHovered,
@@ -50,6 +51,7 @@ export const RatingOption: FC<RatingOptionProps> = (props) => {
           onClick={isChecked && isInteractive ? onSelectHandler : undefined}
           value={value}
           checked={isChecked}
+          required={required}
           aria-checked={isChecked}
           readOnly={readOnly}
           disabled={disabled}

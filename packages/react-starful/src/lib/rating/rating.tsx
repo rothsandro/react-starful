@@ -25,6 +25,7 @@ export function Rating(props: RatingProps) {
     highlightSelectedOnly = false,
     readOnly = false,
     disabled = false,
+    required = false,
     className,
     iconComponent,
     onChange,
@@ -74,6 +75,7 @@ export function Rating(props: RatingProps) {
                 iconComponent={iconComponent}
                 label={labels[i]}
                 value={starValue}
+                required={required}
                 isChecked={starValue === value}
                 isActive={
                   !hoverValue && !!value
@@ -100,6 +102,7 @@ export function Rating(props: RatingProps) {
             type="radio"
             name={name}
             value=""
+            required={required}
             checked={value === null}
             onChange={() => onChange(null)}
             readOnly={readOnly}

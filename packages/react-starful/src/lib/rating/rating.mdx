@@ -91,6 +91,13 @@ focusable.
 <Rating name="rating" disabled />
 ```
 
+If a rating value is required, you can use the `required` prop. If a rating is required, you should also set `noEmptyRating`
+to disable the empty rating option (see next section for more details).
+
+```tsx
+<Rating name="rating" required noEmptyRating />
+```
+
 ### Empty Rating
 
 The component renders a hidden _empty_ rating option by default.

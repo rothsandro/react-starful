@@ -17,6 +17,11 @@ export interface RatingOptionProps {
   value: number;
 
   /**
+   * If the rating option is required.
+   */
+  required?: boolean;
+
+  /**
    * If the rating option is checked.
    */
   isChecked: boolean;

@@ -115,6 +115,13 @@ export const HighlightSelectedOnly: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    noEmptyRating: true,
+    required: true,
+  },
+};
+
 export const CustomIcon: Story = {
   args: {
     defaultValue: 3,

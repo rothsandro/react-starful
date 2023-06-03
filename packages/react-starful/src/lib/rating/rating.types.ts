@@ -13,6 +13,12 @@ interface BaseRatingProps {
   name?: string;
 
   /**
+   * If the rating is required.
+   * If true, {@link NullableProps.noEmptyRating | noEmptyRating} should be set to true.
+   */
+  required?: boolean;
+
+  /**
    * The hidden label for the rating.
    * @default "Rating" if `aria-labelledby` is not provided
    */

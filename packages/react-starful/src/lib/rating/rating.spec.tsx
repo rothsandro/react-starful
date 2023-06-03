@@ -297,6 +297,18 @@ describe('Rating', () => {
     });
   });
 
+  describe('required', () => {
+    test('is not required by default', () => {
+      render(<Rating />);
+      expect(screen.getByLabelText('1 star')).not.toBeRequired();
+    });
+
+    test('renders the options as required if required is set', () => {
+      render(<Rating required />);
+      expect(screen.getByLabelText('1 star')).toBeRequired();
+    });
+  });
+
   describe('iconComponent', () => {
     test('renders the provided Icon component', () => {
       const Icon = () => <span>my custom icon</span>;
