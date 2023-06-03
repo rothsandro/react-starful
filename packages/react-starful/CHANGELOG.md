@@ -1,3 +1,8 @@
+# 0.0.5
+
+- Add `aria-label` and `aria-labelledby` props
+- Add `required` prop
+
 # 0.0.4
 
 - Improved default colors.
