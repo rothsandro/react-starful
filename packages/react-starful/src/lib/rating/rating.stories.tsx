@@ -33,13 +33,16 @@ export default meta;
 export const Basic: Story = {};
 
 export const Labelled: Story = {
+  args: {
+    'aria-labelledby': 'rating-label',
+  },
   decorators: [
     function Label(Story) {
       return (
-        <fieldset>
-          <legend>Rating</legend>
+        <>
+          <div id="rating-label">Rating</div>
           <Story />
-        </fieldset>
+        </>
       );
     },
   ],

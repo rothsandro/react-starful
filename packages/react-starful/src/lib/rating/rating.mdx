@@ -56,17 +56,29 @@ function MyComponent() {
 }
 ```
 
+### Rating label
+
+The rating element (radio group) needs a label for accessibility. The component uses an invisible label _Rating_ by default.
+You can customize the label using either `aria-label` or `aria-labelledby`.
+
+```tsx
+// Without a visible label
+<Rating aria-label="Movie rating" />
+
+// With a visible label
+<div id="rating-label">Movie rating</label>
+<Rating aria-labelledby="rating-label" />
+```
+
 ### Forms & State
 
 The component can be used in forms. You can provide a `name` prop to identify the rating in the form.
-If the name is omitted, the component will automatically generate a unique name. For better accessibility
-it's also recommended to wrap the component in a `fieldset` and provide a `legend` describing the rating.
+If the name is omitted, the component will automatically generate a unique name.
 
 ```tsx
-<fieldset>
-  <leged>Rating</legend>
+<form>
   <Rating name="rating" defaultValue={3} />
-</fieldset>
+</form>
 ```
 
 The component also accepts the `readOnly` and `disabled` props. In both cases, the rating cannot be changed

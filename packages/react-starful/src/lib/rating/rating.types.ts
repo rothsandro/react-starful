@@ -13,6 +13,17 @@ interface BaseRatingProps {
   name?: string;
 
   /**
+   * The hidden label for the rating.
+   * @default "Rating" if `aria-labelledby` is not provided
+   */
+  'aria-label'?: string;
+
+  /**
+   * The id of the element that labels the rating.
+   */
+  'aria-labelledby'?: string;
+
+  /**
    * A function that returns the label for each option.
    * @default createSimpleLabels('star', 'stars')
    */

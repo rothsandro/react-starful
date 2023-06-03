@@ -106,6 +106,43 @@ describe('Rating', () => {
     });
   });
 
+  describe('aria label', () => {
+    test('has the label "Rating" by default', () => {
+      render(<Rating />);
+      expect(screen.getByRole('radiogroup', { name: /Rating/ })).toBeInTheDocument();
+    });
+
+    test('uses the provided aria-label', () => {
+      render(<Rating aria-label="Bewertung" />);
+      expect(screen.getByRole('radiogroup', { name: /Bewertung/ })).toBeInTheDocument();
+    });
+
+    test('uses the provided aria-labelledby value', () => {
+      const Wrapper: FC<PropsWithChildren> = ({ children }) => (
+        <>
+          <span id="rating-label">Bewertung</span>
+          {children}
+        </>
+      );
+      render(<Rating aria-labelledby="rating-label" />, { wrapper: Wrapper });
+      expect(screen.getByRole('radiogroup', { name: /Bewertung/ })).toBeInTheDocument();
+    });
+
+    test('does not set a default aria-label if aria-labelledby is provided', () => {
+      const Wrapper: FC<PropsWithChildren> = ({ children }) => (
+        <>
+          <span id="rating-label">Bewertung</span>
+          {children}
+        </>
+      );
+      render(<Rating aria-labelledby="rating-label" />, { wrapper: Wrapper });
+
+      const radiogroup = screen.getByRole('radiogroup', { name: /Bewertung/ });
+      expect(radiogroup).toHaveAttribute('aria-labelledby');
+      expect(radiogroup).not.toHaveAttribute('aria-label');
+    });
+  });
+
   describe('labels', () => {
     test('uses the star labels by default', () => {
       render(<Rating />);

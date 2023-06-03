@@ -13,6 +13,8 @@ export function Rating(props: RatingProps) {
 
   const {
     name = id,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-label': ariaLabel,
     getLabelText,
     emptyLabelText,
     withActiveLabel = false,
@@ -52,7 +54,13 @@ export function Rating(props: RatingProps) {
   const activeValue = hoverValue || value || 0;
 
   return (
-    <span className={classNames(css.rating, className)} ref={ref}>
+    <span
+      role="radiogroup"
+      aria-label={ariaLabel ?? (ariaLabelledBy === undefined ? 'Rating' : undefined)}
+      aria-labelledby={ariaLabelledBy}
+      className={classNames(css.rating, className)}
+      ref={ref}
+    >
       <span className={css.ratingOptions}>
         {Array(total)
           .fill(null)

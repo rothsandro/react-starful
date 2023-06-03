@@ -4,12 +4,7 @@ body {
     'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-fieldset {
-  border: 0;
-  padding: 0;
-}
-
-legend {
+#rating-label {
   margin-block-end: 5px;
   font-weight: 500;
 }
